@@ -1,0 +1,29 @@
+---
+description: React UI — app shell, features, shared components (not domain)
+globs: src/app/**/*,src/features/**/*,src/shared/**/*
+alwaysApply: false
+---
+
+# Frontend layer (`/src/app`, `/src/features`, `/src/shared`)
+
+## Scope
+
+- Components, routing, layout, Tailwind, i18n, Zustand UI stores, hooks that **call** domain/data APIs.
+- **Forbidden:** business rules (scoring, exam pass/fail, scheduling) in components — use `/src/domain`.
+
+## Rules
+
+- TypeScript strict; no `any`.
+- **i18n:** every user-visible string is a key (`uk` default).
+- **Mobile-first:** 360px baseline; tap targets ≥ 44px; no hover-only UX.
+- **Accessibility:** semantic HTML, labels, focus management, keyboard support, WCAG AA contrast.
+- **Data flow:** components → hooks/stores → repositories/domain; no direct Dexie in deep presentational components.
+- Do not add UI component libraries without ADR/orchestrator approval.
+
+## Testing
+
+- React Testing Library; assert behavior and roles, not implementation details.
+
+## Performance
+
+- Lazy routes where sensible; avoid unnecessary Zustand subscriptions.

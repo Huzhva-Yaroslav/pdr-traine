@@ -1,0 +1,29 @@
+---
+description: Pure domain logic — exam engine, scoring, scheduling, selection
+globs: src/domain/**/*
+alwaysApply: false
+---
+
+# Domain layer (`/src/domain`)
+
+## Scope
+
+- **Only** pure TypeScript: no React, Dexie, fetch, or DOM.
+- Time and randomness: inject `now: Date` and seeded `rng`; never call `Date.now()` or `Math.random()` inside logic.
+
+## Rules
+
+- **TDD:** failing Vitest test first, then minimal implementation.
+- **Config-driven exam:** all exam parameters from `ExamConfig`; no hardcoded 20/20/2.
+- **Immutability:** never mutate inputs; return new objects.
+- **Types:** strict discriminated unions for session state; no `any`.
+- **Imports:** domain must not import from `/src/data`, `/src/features`, or `/src/app`.
+
+## Testing
+
+- Cover edge cases: timeout, mistake limit, skip/return, empty bank, unknown ids.
+- Target high branch coverage on `/src/domain`.
+
+## Schema
+
+- Shared entity shapes align with `docs/DATA_SCHEMA.md`; propose schema changes via orchestrator.

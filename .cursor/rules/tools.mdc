@@ -1,0 +1,30 @@
+---
+description: Python question-bank pipeline — parse, validate, export, images
+globs: tools/**/*
+alwaysApply: false
+---
+
+# Data pipeline (`/tools`)
+
+## Scope
+
+- Python 3.12: fetch/parse/validate/export CLI, tests, fixtures.
+- Outputs under `/public/data/v{N}/` per `docs/DATA_SCHEMA.md`.
+- **Forbidden:** editing `/src/**` — request client changes via orchestrator.
+
+## Rules
+
+- **Deterministic & idempotent:** same input → same output bytes.
+- **Validate hard:** pydantic models + custom checks; fail on invalid data; do not silently drop rows.
+- **Legal:** respect MVS source terms; cache raw downloads in gitignored `/tools/raw`; no aggressive scraping.
+- **Images:** WebP (~quality 80), stable names, strip metadata.
+- **Manifest:** include version, checksums, optional `diff` vs previous bank.
+- Type hints everywhere; `ruff`, `mypy`, `pytest` must pass.
+
+## Schema sync
+
+- Any JSON shape change updates `docs/DATA_SCHEMA.md` in the same change set.
+
+## Done criteria
+
+- Integrity report with zero unexplained errors; reproducible export command documented in `/tools/README.md`.
