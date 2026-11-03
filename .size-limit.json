@@ -1,0 +1,7 @@
+[
+  {
+    "name": "App (empty shell)",
+    "path": "dist/assets/*.js",
+    "limit": "80 KB"
+  }
+]

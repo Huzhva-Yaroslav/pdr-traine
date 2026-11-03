@@ -1,0 +1,10 @@
+dist
+coverage
+node_modules
+.pnpm-store
+pnpm-lock.yaml
+public/data
+.husky/_
+.superpowers
+docs
+.cursor

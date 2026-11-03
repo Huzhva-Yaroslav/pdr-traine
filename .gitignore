@@ -1,0 +1,45 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Agent tooling scratch (not project content)
+.superpowers
+
+# Build output
+dist
+dist-ssr
+*.local
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Data pipeline
+tools/raw
+
+# Tests / coverage
+coverage
+playwright-report
+test-results
+
+# Editor / OS junk
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
