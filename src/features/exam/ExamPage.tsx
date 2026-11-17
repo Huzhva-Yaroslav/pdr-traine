@@ -173,7 +173,7 @@ export function ExamPage() {
     setExam(next)
     await saveExam(next)
     await recordAnswer(current, correct, new Date())
-    await bank.reloadProgress()
+    if (bank.status === 'ready') await bank.reloadProgress()
   }
 
   return (
