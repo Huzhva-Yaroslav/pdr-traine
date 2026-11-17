@@ -1,17 +1,40 @@
-import { useTranslation } from 'react-i18next'
+import { useEffect } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+import { ExamPage } from '../features/exam/ExamPage'
+import { HomePage } from '../features/home/HomePage'
+import { SettingsPage } from '../features/settings/SettingsPage'
+import { StatsPage } from '../features/stats/StatsPage'
+import { TrainingPage } from '../features/training/TrainingPage'
+import i18n from '../shared/i18n'
+import { BankProvider } from './BankProvider'
+import { applyTheme, useSettings } from './settingsStore'
 
 function App() {
-  const { t } = useTranslation()
+  const theme = useSettings((state) => state.theme)
+  const language = useSettings((state) => state.language)
+
+  useEffect(() => {
+    applyTheme(theme)
+  }, [theme])
+
+  useEffect(() => {
+    void i18n.changeLanguage(language)
+  }, [language])
 
   return (
-    <main className="flex min-h-svh flex-col items-center justify-center gap-4 bg-white px-4 py-8 text-center dark:bg-slate-900">
-      <h1 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
-        {t('app.title')}
-      </h1>
-      <p className="max-w-prose text-sm text-slate-600 dark:text-slate-400">
-        {t('app.disclaimer')}
-      </p>
-    </main>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <BankProvider>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/train/:mode" element={<TrainingPage />} />
+          <Route path="/train/:mode/:id" element={<TrainingPage />} />
+          <Route path="/exam" element={<ExamPage />} />
+          <Route path="/stats" element={<StatsPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+        </Routes>
+      </BankProvider>
+    </BrowserRouter>
   )
 }
 

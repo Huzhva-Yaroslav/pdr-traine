@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480">
+  <rect width="720" height="480" fill="#dbe4ee"/>
+  <rect x="0" y="180" width="720" height="120" fill="#4b5563"/>
+  <rect x="300" y="0" width="120" height="480" fill="#4b5563"/>
+  <text x="24" y="32" font-size="16" font-family="sans-serif" fill="#0f172a">Білет 2. Рівнозначне перехрестя, знаків пріоритету немає</text>
+  
+  
+  
+  
+  
+        <g transform="translate(78 214) rotate(0)">
+          <rect x="-36" y="-16" width="62" height="32" rx="7" fill="#0f766e" stroke="#082f2a" stroke-width="2"/>
+          <polygon points="26,-8 40,0 26,8" fill="#082f2a"/>
+        </g>
+        <text x="78" y="219" text-anchor="middle" font-size="16" font-family="sans-serif" font-weight="700" fill="#ffffff">А</text>
+        <text x="78" y="242" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#0f172a">↑</text>
+        <g transform="translate(388 78) rotate(90)">
+          <rect x="-36" y="-16" width="62" height="32" rx="7" fill="#0f766e" stroke="#082f2a" stroke-width="2"/>
+          <polygon points="26,-8 40,0 26,8" fill="#082f2a"/>
+        </g>
+        <text x="388" y="83" text-anchor="middle" font-size="16" font-family="sans-serif" font-weight="700" fill="#ffffff">Б</text>
+        <text x="388" y="106" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#0f172a">↑</text>
+  
+</svg>
